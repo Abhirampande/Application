@@ -24,14 +24,15 @@ namespace Application.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
+            //Server side validation as default not using custom Validation
+            //Client side vlidation using Validation Partial
+            //Custom Validation Updated
             if (obj.Name == obj.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("name", "The Displayorder cannot exactly match the Name.");
             }
-            if (obj.Name.ToLower() == "test")
-            {
-                ModelState.AddModelError("", "Test is an invalid value");
-            }
+
+            //Default Validation
             if (ModelState.IsValid)// check the regqired validation of model class
             {
                 _db.Categories.Add(obj); //keeps the record of all changes

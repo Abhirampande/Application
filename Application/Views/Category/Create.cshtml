@@ -6,7 +6,7 @@
             <h2 class="text-primary"><b>CREATE CATEGORY</b></h2>
             <hr/>
         </div>
-        <div asp-validation-summary="All"></div> <!--asp.net summary tag helper-->
+        @*<div asp-validation-summary="ModelOnly">*@</div> <!--asp.net summary tag helper-->
         <div class="mb-3 row" >
             <label>Name</label>
             <input asp-for="Name" class="form-control" />
@@ -26,7 +26,13 @@
             </div>
         </div>
        
-        
-
     </div>
 </form>
+
+@*creating client side validation using(Shared- Validation script partial*@
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
