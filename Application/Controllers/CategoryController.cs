@@ -51,7 +51,15 @@ namespace Application.Controllers
             {
                 return NotFound();
             }
-            return View();
+            Category? categoryFromDb = _db.Categories.Find(id);// it only works for primary key
+            //Some other ways to find Our record
+            //Category? categoryFromDb1 = _db.Categories.FirstOrDefault(u=>u.Id==id);//for id for name type u=>u.Name=="" or.contains in place of id
+            //Category? categoryFromDb2 = _db.Categories.Where(u=>u.Id==id).FirstOrDefault();
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryFromDb);//pasiing categories to the view to publish categories
         }
         //post method
         [HttpPost]

@@ -1,4 +1,5 @@
-﻿@model List<Category>
+﻿@*Ui for Category List Page*@
+@model List<Category>
 @* Ui design for Ctegory Page*@
 <div class="container">
     <div class="row pt-4 pb-3">
@@ -40,11 +41,11 @@
             @* Update Ui for Category(Edit Button & Delete Button)*@
             <td>
                 <div class="w-75 btn-group" role="group">
-                     <a asp-controller="Cattegory" asp-action="Edit" class="btn btn-primary mx-2">
+                     <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
                                 <i class="bi bi-pencil-square"></i> Edit                           
                      </a>
 
-                      <a asp-controller="Cattegory" asp-action="Delete" class="btn btn-danger mx-2">
+                      <a asp-controller="Category" asp-action="Delete" class="btn btn-danger mx-2">
                                 <i class="bi bi-trash3-fill"></i> Delete
                       </a>
                 </div>
