@@ -1,0 +1,12 @@
+﻿@* to get crud opertation notification you can simple use partial view to avoid writing code in every view class*@
+
+@*this tempdata is for success you can write for error also*@
+@if (TempData["success"] != null)
+{
+    <h2>@TempData["success"]</h2> @* temp data to show notification for controller(update, delete)*@
+}
+
+@if (TempData["error"] != null)
+{
+    <h2>@TempData["error"]</h2> @* temp data to show notification for controller(update, delete)*@
+}

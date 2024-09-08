@@ -45,6 +45,7 @@ namespace Application.Controllers
             {
                 _db.Categories.Add(obj); //keeps the record of all changes
                 _db.SaveChanges(); //it will create the category
+                TempData["success"] = "Category created Successfully"; // temp data gives notification message like created, deleted
                 return RedirectToAction("Index");// to go to a different controller, write controller name
             }
             return View();
@@ -76,7 +77,8 @@ namespace Application.Controllers
             if (ModelState.IsValid)
             {
                 _db.Categories.Update(obj); 
-                _db.SaveChanges(); 
+                _db.SaveChanges();
+                TempData["success"] = "Category updated Successfully";
                 return RedirectToAction("Index");
             }
             return View();
@@ -108,6 +110,7 @@ namespace Application.Controllers
             }
             _db.Categories.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Category deleted Successfully";
             return RedirectToAction("Index");
 
         }
