@@ -2,11 +2,19 @@
 
 @*this tempdata is for success you can write for error also*@
 @if (TempData["success"] != null)
-{
-    <h2>@TempData["success"]</h2> @* temp data to show notification for controller(update, delete)*@
+{   <script src="~/lib/jquery/dist/jquery.min.js"></script> @*used by toastr by codeseven (toaster notification)*@
+    <script src=//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js></script>
+    @* temp data to show notification for controller(update, delete)*@
+    <script type="text/javascript">
+        toastr.success('@TempData["success"]');
+    </script>
 }
 
 @if (TempData["error"] != null)
 {
-    <h2>@TempData["error"]</h2> @* temp data to show notification for controller(update, delete)*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src=//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js></script>
+    <script type="text/javascript">
+        toastr.error('@TempData["success"]');
+    </script> @* temp data to show notification for controller(update, delete)*@
 }
